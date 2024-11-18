@@ -5,12 +5,19 @@
 }
 
 body {
-    background-color: #202c2a;
+    background-color: #E8F5E9;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #fff;
+    color: #1B5E20;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 15.6px;
+    letter-spacing: 0.05em;
+
 }
 
 .profile-header {
@@ -18,7 +25,6 @@ body {
     grid-template-columns: auto 1fr;
     gap: 20px 50px;
     margin: 40px;
-    color: #fff;
     justify-content: stretch;
     grid-template-areas:
         "me bio"
@@ -32,7 +38,6 @@ body {
     border-radius: 50%;
     grid-row: span 3;
     overflow: hidden;
-    border: 4px solid #333;
     grid-area: me;
 }
 
@@ -48,6 +53,7 @@ body {
     grid-column: 1;
     line-height: 1;
     grid-area: bio;
+    color: #b2d4b3;
 }
 
 .profile-name {
@@ -64,21 +70,51 @@ body {
 .links {
     grid-column: 3;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     margin-top: 10px;
     grid-area: links;
 }
 
 .link {
+    position: relative;
     width: 50px;
     height: 50px;
-    background-color: #555;
-    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.link:hover svg path{
+    fill: #1B5E20;
+    transform: scale(1.1)
+}
+
+.link .description {
+    position: absolute;
+    bottom: -30px; /* Под объектом */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1B5E20; /* Темно-зеленый фон */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0; /* По умолчанию скрыто */
+    visibility: hidden; /* По умолчанию скрыто */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Показ описания при наведении */
+.link:hover .description {
+    opacity: 1;
+    visibility: visible;
 }
 
 .profile-experience {
     display: flex;
     flex-direction: column;
+    gap: 30px;
     width: 60%;
 }
 
@@ -92,21 +128,12 @@ body {
         "logo name"
         "position position";
 
-    border-left: 1px solid #7b7777;
-    border-bottom: 1px solid #7b7777;
+    border-left: 1px solid #C8E6C9;
+    border-bottom: 1px solid #C8E6C9;
     padding: 20px;
-
-
 }
-
-.experience-item img {
-    width: 150px;
-    height: 100px;
-}
-
-.experience-item-logo {
-    grid-area: logo;
-
+.experience-item:not(:first-child) {
+    border-bottom: none;
 }
 
 .experience-item-company {
