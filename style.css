@@ -1,6 +1,9 @@
+html {
+    font-size: 62.5%;
+}
+
 * {
     margin: 0;
-    /* padding: 0; */
     box-sizing: border-box;
 }
 
@@ -13,7 +16,7 @@ body {
     color: #1B5E20;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 1.2rem;
     text-transform: uppercase;
     line-height: 15.6px;
     letter-spacing: 0.05em;
@@ -26,6 +29,7 @@ body {
     gap: 20px 50px;
     margin: 40px;
     justify-content: stretch;
+    align-items: center;
     grid-template-areas:
         "me bio"
         "me name"
@@ -39,6 +43,8 @@ body {
     grid-row: span 3;
     overflow: hidden;
     grid-area: me;
+    border: 5px solid #b2d4b3;
+    box-shadow: 0 0 15px rgba(27, 94, 31, 0.777);
 }
 
 .profile-avatar img {
@@ -48,8 +54,8 @@ body {
 }
 
 .profile-bio {
-    align-self: start;
-    font-size: 1em;
+    align-self: end;
+    font-size: 1.6rem;
     grid-column: 1;
     line-height: 1;
     grid-area: bio;
@@ -57,7 +63,7 @@ body {
 }
 
 .profile-name {
-    font-size: 3em;
+    font-size: 4rem;
     margin: 0;
     grid-row: 2;
     justify-self: center;
@@ -65,14 +71,12 @@ body {
 
 }
 
-
-
 .links {
     grid-column: 3;
     display: flex;
     gap: 30px;
-    margin-top: 10px;
     grid-area: links;
+    align-self: start;
 }
 
 .link {
@@ -83,6 +87,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: 0.4s ease;
 }
 
 .link:hover svg path{
@@ -92,20 +97,23 @@ body {
 
 .link .description {
     position: absolute;
-    bottom: -30px; /* Под объектом */
-    left: 50%;
+    bottom: -25px;
+    left: 55%;
+    width: 50px;
+    align-items: center;
+    text-align: center;
     transform: translateX(-50%);
-    background-color: #1B5E20; /* Темно-зеленый фон */
-    color: white;
-    padding: 5px 10px;
+    background-color: #1B5E20;
+    color: #E8F5E9;
+    padding: 3px 3px;
     border-radius: 5px;
-    font-size: 14px;
-    opacity: 0; /* По умолчанию скрыто */
-    visibility: hidden; /* По умолчанию скрыто */
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    font-size: 0.7rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-/* Показ описания при наведении */
+
 .link:hover .description {
     opacity: 1;
     visibility: visible;
@@ -132,7 +140,7 @@ body {
     border-bottom: 1px solid #C8E6C9;
     padding: 20px;
 }
-.experience-item:not(:first-child) {
+.experience-item:nth-child(2) {
     border-bottom: none;
 }
 
